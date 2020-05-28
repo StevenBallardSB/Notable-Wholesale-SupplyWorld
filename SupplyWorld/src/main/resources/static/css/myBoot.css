@@ -57,13 +57,13 @@
 }
 
 .headerButton {
-	color: white;
+	color: black;
 	border-color: white;
-	background-color: #E31837;
+	background-color: #f7bf50;
 }
 
 #btnWide {
-	width: 100%;
+	width: 25%;
 }
 
 .nwForm {
