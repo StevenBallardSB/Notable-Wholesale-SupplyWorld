@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.notable.business.OrderDetails;
 import com.notable.business.User;
 import com.notable.data.OrderDetailsMapper;
+import com.notable.data.OrdersJDBCTemplate;
 import com.notable.data.UserMapper;
 
 @Controller
@@ -24,6 +26,21 @@ public class OrderController {
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	OrdersJDBCTemplate OrdersJdbc;
+	
+	@RequestMapping("fulfill")
+	public String fulfillOrder(HttpServletRequest request) {
+		
+		System.out.println("In the fulfillOrder method");
+		
+		// Need to update the status column to Complete on the orderDetails table
+		OrdersJdbc.fulfill("update orderdetails set status = 'Complete'");
+		
+		return "views/fulfillment";
+		
+	}
 	
 	@GetMapping("myOrders")
 	public String showMyOrders(HttpServletRequest request) {
@@ -37,7 +54,7 @@ public class OrderController {
 		int userId = 1;
 
 		List<OrderDetails> orderDetails = jdbcTemplate.query(
-				"select orderId, ProductId, Quantity from orderdetails", new OrderDetailsMapper());
+				"select orderId, ProductId, Quantity, Status from orderdetails", new OrderDetailsMapper());
 
 		session.setAttribute("orderDetails", orderDetails);
 

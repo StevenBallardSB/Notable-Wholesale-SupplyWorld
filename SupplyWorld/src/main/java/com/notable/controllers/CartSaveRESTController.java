@@ -28,7 +28,7 @@ public class CartSaveRESTController {
 			int orderId = 1;
 			int productId = item.getProduct().getProductId();
 			int quantity = item.getQuantity();
-			String status = "Fulfilled";
+			String status = "Processing";
 			
 			// Update the OrderDetails Table
 			jdbc.updateOrderDetails(orderId, productId, quantity, status);

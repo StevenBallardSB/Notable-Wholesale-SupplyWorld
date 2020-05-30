@@ -1,31 +1,46 @@
 package com.notable.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.notable.business.AdminOrder;
-import com.notable.business.Cart;
-import com.notable.business.LineItem;
+import com.notable.data.AdminOrdersMapper;
+import com.notable.data.OrderDetailsMapper;
 import com.notable.data.OrdersJDBCTemplate;
 
 @RestController
 public class OrderRESTController {
 
 	@Autowired
-	OrdersJDBCTemplate jdbc;
+	JdbcTemplate jdbc;
+	
+	@Autowired
+	OrdersJDBCTemplate OrdersJdbc;
 	
 	@RequestMapping("orders")
-	public AdminOrder getOrders(HttpServletRequest request) {
+	public List<AdminOrder> getOrders(HttpServletRequest request) {
 		
-		AdminOrder order = new AdminOrder();
+		System.out.println("In the OrderRestController");
 		
 		// Need to pull the orderDetails from db
+		List<AdminOrder> orders = jdbc.query("select * from orderdetails", new AdminOrdersMapper());
 		
-		// Put data in the AdminOrder object
+//		for (AdminOrder item : orders) {
+//			System.out.println("ProductId OrdersRESTController: " + item.getProductId()); 
+//		}
+		
+		AdminOrder anOrder = orders.get(0);
 
-		return order;
+
+		return orders;
 	}
+	
+
+	
 }

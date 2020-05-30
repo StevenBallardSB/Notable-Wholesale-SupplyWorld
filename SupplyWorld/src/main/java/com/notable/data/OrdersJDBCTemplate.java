@@ -22,5 +22,15 @@ public class OrdersJDBCTemplate implements OrdersDAO {
 		jdbc.update(sql, orderId, productId, quantity, status);
 		
 	}
+	
+public void fulfill(String sql) {
+		
+		//String innerSql = "SELECT orderid FROM orders ORDER BY orderid DESC LIMIT 1";
+		
+		//String sql = "update orderdetails set status = 'Complete';";
+		jdbc.update(sql);
+		
+	}
+
 
 }
