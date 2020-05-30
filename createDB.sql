@@ -54,28 +54,11 @@ CREATE TABLE Products (
     ('30', 'Tape Dispenser', 'Office Supplies', '30')
     ;
 
-DROP TABLE IF EXISTS Customers;
-CREATE TABLE Customers(
-customerId INT NOT NULL AUTO_INCREMENT,
-name varchar(50) NOT NULL,
-email VARCHAR(255) NOT NULL,
-PRIMARY KEY (customerId)
-);
-    
-DROP TABLE IF EXISTS Orders;
-CREATE TABLE Orders(
-   OrderId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   customerId INT NOT NULL,
-   Amount DECIMAL(12,2) NOT NULL,
-   Status VARCHAR(255) NOT NULL,
-   FOREIGN KEY (customerId) REFERENCES Customers(customerId)
-   );
 
 DROP TABLE IF EXISTS OrderDetails;
 CREATE TABLE OrderDetails(
    OrderId   INT NOT NULL,
    ProductId INT NOT NULL,
-   Quantity INT NOT NULL,
-   FOREIGN KEY (OrderId) REFERENCES Orders(OrderId),
-   FOREIGN KEY (ProductId) REFERENCES Products(productId)
+   Quantity INT NOT NULL, 
+   Status VARCHAR(50) NOT NULL
 );
