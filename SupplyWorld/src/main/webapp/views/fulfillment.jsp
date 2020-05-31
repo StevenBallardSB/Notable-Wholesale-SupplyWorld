@@ -19,13 +19,25 @@
 			<div class="col-md-12">
 				<a href="myOrders"><button class="headerButton btn">View Orders</button></a>
 				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
-				<a href=""><button class="headerButton btn">Log Out</button></a>
+				<a href="index.jsp"><button class="headerButton btn">Log Out</button></a>
 			</div>
 		</div>
-		<h1>Orders</h1>
+		
 	</div>
 
+
+
+
+<c:if test="${orderDetails.isEmpty() }">
+<p>There are no orders</p>
+</c:if>
+
+
+
 		<table class="table">
+		<c:if test="${!orderDetails.isEmpty() }">
+		<h1>Orders</h1>
+
 			<thead>
 				<tr>
 					<th scope="col">Order #</th>
@@ -36,6 +48,7 @@
 
 				</tr>
 			</thead>
+			</c:if>
 			<tbody>
 
 				<c:forEach items="${orderDetails }" var="orderDetails">
