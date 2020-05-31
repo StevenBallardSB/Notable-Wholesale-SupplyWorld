@@ -14,14 +14,17 @@
 }
 
 #mainLogo {
-	width: 10%;
-	margin-left: 2rem;
+	width: 30%;
+	margin-left: 5rem;
 	padding: 0;
 }
 
 #homeHeader {
 	width: auto;
 	margin: 0; padding 0;
+	background-image: url("https://images.squarespace-cdn.com/content/v1/56a1d38f25981dbe850e8da1/1458609390255-HH7TYM7Z3KD24YH6CKQW/ke17ZwdGBToddI8pDm48kK7vQ45L0E7-NrxLOHHK0M4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnGsKPOTtl_Z-R7WPXFJgTcDRZlRewf4itYRLOv2-VQ8WfAPx-_bYKMLS9dyf73Md7w/Warehouse+Products.jpg?format=2500w");
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
 	background-color: #f7bf50;
 	/* border-bottom: .1rem solid black; */
 }
@@ -59,7 +62,7 @@
 .headerButton {
 	color: black;
 	border-color: white;
-	background-color: #f7bf50;
+	background-color: #fbcc00;
 }
 
 #btnWide {
@@ -82,7 +85,17 @@
 .container.home {
 	text-align: center;
 	padding-top: 1.25rem;
-	padding-bottom: 3.75rem;
+	padding-bottom: 12rem;
+	height: inherit;
+	max-width: 89.375rem;
+	margin: auto;
+	align-items: center;
+}
+
+.container.home2 {
+	text-align: center;
+	padding-top: 1.25rem;
+	padding-bottom: 4rem;
 	height: inherit;
 	max-width: 89.375rem;
 	margin: auto;
@@ -112,7 +125,7 @@
 #footer {
 	width: 100%;
 	color: white;
-	background-color: #f7bf50;
+	background-color: #fbcc00;
 	text-align: center;
 	margin-top: 100px;
 }
@@ -131,7 +144,7 @@ footer a:hover {
 
 #footer-copyright {
 	color: black;
-	background-color: #f7bf50;
+	background-color: #fbcc00;
 	border-top: solid .5rem white;
 }
 
@@ -274,11 +287,11 @@ footer a:hover {
 }
 
 #welcomeBack {
-	color: white;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	margin-bottom: 0;
-	background: rgb(255, 255, 255);
-	background: linear-gradient(90deg, rgba(255, 255, 255, 1) 10%,
-		rgba(227, 24, 55, 1) 50%, rgba(255, 255, 255, 1) 90%);
+	background: rgb(0, 0, 0);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 5%,
+		rgba(251, 204, 0, 1) 50%, rgba(0, 0, 0, 1) 95%);
 }
