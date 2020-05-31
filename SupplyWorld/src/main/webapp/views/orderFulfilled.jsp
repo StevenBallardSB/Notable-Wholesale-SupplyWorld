@@ -17,9 +17,9 @@
 		<div class="container home">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Administrator Page</h1>
 				<h3 style="color:red">Order Fulfilled</h3>
 				<a href="myOrders"><button class="headerButton btn">View Orders</button></a>
+				<a href="index.jsp"><button class="headerButton btn">Log Out</button></a>
 			</div>
 		</div>
 	</div>
