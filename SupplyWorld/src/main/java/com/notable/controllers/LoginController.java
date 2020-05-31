@@ -52,7 +52,7 @@ public class LoginController {
 			return "views/loginInvalid";
 		}
 
-		return "views/fulfillment";
+		return "views/home";
 	}
 
 

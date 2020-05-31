@@ -26,47 +26,7 @@
 		
 	</div>
 
-
-
-
-<c:if test="${orderDetails.isEmpty() }">
-<p>There are no orders</p>
-</c:if>
-
-
-
-		<table class="table">
-		<c:if test="${!orderDetails.isEmpty() }">
-		<h1>Orders</h1>
-
-			<thead>
-				<tr>
-					<th scope="col">Order #</th>
-					<th scope="col">Product ID</th>
-					<th scope="col">Name</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Status</th>
-
-				</tr>
-			</thead>
-			</c:if>
-			<tbody>
-
-				<c:forEach items="${orderDetails }" var="orderDetails">
-					<tr>
-						<td>${orderDetails.orderId }</td>
-						<td>${orderDetails.productId}</td>
-						<td>${orderDetails.name }</td>
-						<td>${orderDetails.quantity }</td>
-						<td>${orderDetails.status }</td>
-						
-					</tr>
-				</c:forEach>
-		
-			</tbody>
-		</table>
-	</div>
-	
+</div>	
 
 <!-- 		<div class="container home"> -->
 <!-- 		<div class="row"> -->

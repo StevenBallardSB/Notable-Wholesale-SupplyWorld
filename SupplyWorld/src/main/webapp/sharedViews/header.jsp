@@ -5,7 +5,7 @@
 
 			
 			<div >
-				<a href="home?name=fulfillment"><img src="images/supplyWorldLogo.png"
+				<a href="home?name=home"><img src="images/supplyWorldLogo.png"
 					id="mainLogo" alt=""></a>
 			</div>
 			
