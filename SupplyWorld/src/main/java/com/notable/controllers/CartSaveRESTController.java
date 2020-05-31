@@ -34,16 +34,19 @@ public class CartSaveRESTController {
 		// get the last orderId to add 1 to set the next order Id
 		List<AdminOrder> orders = jdbcTemplate.query("SELECT * FROM orderdetails", new AdminOrdersMapper());
 		
+		System.out.println("ORDERS: " + orders);
+		
 		int orderId = 1;
 		// get the last order
-		int dbOrderId = orders.get(orders.size()-1).getOrderId();
-		if (dbOrderId == 1) {
-			orderId ++;
+		if (!orders.isEmpty()) {
+			int dbOrderId = orders.get(orders.size()-1).getOrderId();
+			if (dbOrderId == 1) {
+				orderId ++;
+			}
+			if (dbOrderId > 1) {
+				orderId = dbOrderId + 1;
+			}
 		}
-		if (dbOrderId > 1) {
-			orderId = dbOrderId + 1;
-		}
-		
 		
 		for (LineItem item : cart.getItems()) {
 			// save to the orderdetails database
