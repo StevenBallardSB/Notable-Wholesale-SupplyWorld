@@ -5,21 +5,24 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import com.notable.business.AdminOrder;
 import com.notable.business.OrderDetails;
 
-public class OrderDetailsMapper implements RowMapper<OrderDetails> {
+public class OrderDetailsMapper implements RowMapper<AdminOrder> {
 
 	@Override
-	public OrderDetails mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public AdminOrder mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
-		OrderDetails od = new OrderDetails();
+		AdminOrder ao = new AdminOrder();
 		
-		od.setOrderId(rs.getInt("OrderId"));
-		od.setProductName(rs.getString("ProductId"));
-		od.setQuantity(rs.getInt("Quantity"));
+		ao.setOrderId(rs.getInt("OrderId"));
+		ao.setProductId(rs.getInt("ProductId"));
+		ao.setName(rs.getString("Name"));
+		ao.setQuantity(rs.getInt("Quantity"));
+		ao.setStatus(rs.getString("Status"));
 
 
-		return od;
+		return ao;
 	}
 
 }

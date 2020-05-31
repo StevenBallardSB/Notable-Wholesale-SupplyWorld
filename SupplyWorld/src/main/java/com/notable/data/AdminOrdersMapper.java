@@ -16,6 +16,7 @@ public class AdminOrdersMapper implements RowMapper<AdminOrder> {
 
 		ao.setOrderId(rs.getInt("OrderId"));
 		ao.setProductId(rs.getInt("ProductId"));
+		ao.setName(rs.getString("Name"));
 		ao.setQuantity(rs.getInt("Quantity"));
 		ao.setStatus(rs.getString("Status"));
 
