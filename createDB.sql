@@ -59,6 +59,7 @@ DROP TABLE IF EXISTS OrderDetails;
 CREATE TABLE OrderDetails(
    OrderId   INT NOT NULL,
    ProductId INT NOT NULL,
+   Name VARCHAR(255) NOT NULL,
    Quantity INT NOT NULL, 
    Status VARCHAR(50) NOT NULL
 );
