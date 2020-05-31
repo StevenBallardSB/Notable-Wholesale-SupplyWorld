@@ -26,7 +26,7 @@ public class OrderRESTController {
 	@RequestMapping("orders")
 	public List<AdminOrder> getOrders(HttpServletRequest request) {
 		
-		System.out.println("In the OrderRestController");
+		
 		
 		// Need to pull the orderDetails from db
 		List<AdminOrder> orders = jdbc.query("select * from orderdetails", new AdminOrdersMapper());
@@ -35,7 +35,7 @@ public class OrderRESTController {
 //			System.out.println("ProductId OrdersRESTController: " + item.getProductId()); 
 //		}
 		
-		AdminOrder anOrder = orders.get(0);
+		
 
 
 		return orders;
