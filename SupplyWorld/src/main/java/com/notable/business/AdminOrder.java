@@ -4,6 +4,7 @@ public class AdminOrder {
 
 	int orderId;
 	int productId;
+	String name;
 	int quantity;
 	String status;
 	
@@ -30,6 +31,12 @@ public class AdminOrder {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

@@ -27,47 +27,26 @@
 			<thead>
 				<tr>
 					<th scope="col">Order #</th>
-					<th scope="col">Product</th>
-					<th scope="col">Price</th>
+					<th scope="col">Product ID</th>
+					<th scope="col">Name</th>
 					<th scope="col">Quantity</th>
-					<th scope="col">Product Total</th>
-					<th scope="col">Order Status</th>
-					<th scope="col">Order Total</th>
+					<th scope="col">Status</th>
+
 				</tr>
 			</thead>
 			<tbody>
 
-				<%-- <c:forEach items="${orderDetails }" var="orderDetails">
+				<c:forEach items="${orderDetails }" var="orderDetails">
 					<tr>
 						<td>${orderDetails.orderId }</td>
-						<td>${orderDetails.productName }</td>
-						<td>${orderDetails.price }</td>
+						<td>${orderDetails.productId}</td>
+						<td>${orderDetails.name }</td>
 						<td>${orderDetails.quantity }</td>
-						<td>${orderDetails.productCurrencyFormat }</td>
-						<td>${orderDetails.orderCurrencyFormat }</td>
-						<td>Processing</td>
+						<td>${orderDetails.status }</td>
+						
 					</tr>
 				</c:forEach>
- --%>
-				<c:forEach var="entry" items="${ordersHash}">
-					<c:forEach var="orderDetails" items="${entry.value}"
-						varStatus="loop">
-						<tr>
-							<c:if test="${loop.index == 0}">
-								<td rowspan="${entry.value.size()}" style="border-right:1px solid #dee2e6; vertical-align: middle; font-weight: bold;">${orderDetails.orderId}</td>
-							</c:if>
-							<td>${orderDetails.productName}</td>
-							<td>${orderDetails.price}</td>
-							<td>${orderDetails.quantity}</td>
-							<td>${orderDetails.productCurrencyFormat}</td>
-							<td>Processing</td>
-							<c:if test="${loop.index == 0}">
-								<td rowspan="${entry.value.size()}" style="border-left:1px solid #dee2e6; vertical-align: middle; font-weight: bold;">${orderDetails.orderCurrencyFormat}</td>
-							</c:if>
-
-						</tr>
-					</c:forEach>
-				</c:forEach>
+		
 			</tbody>
 		</table>
 	</div>

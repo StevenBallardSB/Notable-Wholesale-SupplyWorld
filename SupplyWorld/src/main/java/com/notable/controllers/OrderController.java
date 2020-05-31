@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.notable.business.AdminOrder;
 import com.notable.business.OrderDetails;
 import com.notable.business.User;
 import com.notable.data.OrderDetailsMapper;
@@ -38,7 +39,7 @@ public class OrderController {
 		// Need to update the status column to Complete on the orderDetails table
 		OrdersJdbc.fulfill("update orderdetails set status = 'Complete'");
 		
-		return "views/fulfillment";
+		return "views/orderFulfilled";
 		
 	}
 	
@@ -53,40 +54,12 @@ public class OrderController {
 		
 		int userId = 1;
 
-		List<OrderDetails> orderDetails = jdbcTemplate.query(
-				"select orderId, ProductId, Quantity, Status from orderdetails", new OrderDetailsMapper());
+		List<AdminOrder> orderDetails = jdbcTemplate.query(
+				"select orderId, ProductId, Name, Quantity, Status from orderdetails", new OrderDetailsMapper());
 
 		session.setAttribute("orderDetails", orderDetails);
 
-		HashMap<Integer, List<OrderDetails>> hmap = new HashMap<Integer, List<OrderDetails>>();
-		List<OrderDetails> itemsPerOrder = new ArrayList<OrderDetails>();
-		int tempOrderId = 0;
-
-		for (OrderDetails od : orderDetails) {
-			int orderId = od.getOrderId();
-			if (orderId != tempOrderId) {
-				if (tempOrderId != 0) {
-					List<OrderDetails> itemsPerOrderTemp = new ArrayList<OrderDetails>();
-					for (OrderDetails item : itemsPerOrder) {
-						itemsPerOrderTemp.add(item);
-					}
-					hmap.put(tempOrderId, itemsPerOrderTemp);
-				}
-				tempOrderId = orderId;
-				itemsPerOrder.clear();
-			}
-
-			itemsPerOrder.add(od);
-		}
-
-		List<OrderDetails> itemsPerOrderTemp = new ArrayList<OrderDetails>();
-		for (OrderDetails item : itemsPerOrder) {
-			itemsPerOrderTemp.add(item);
-			hmap.put(tempOrderId, itemsPerOrderTemp);
-		}
-
-		//System.out.println(hmap.toString());
-		session.setAttribute("ordersHash", hmap);
+		
 
 		return "views/fulfillment";
 
