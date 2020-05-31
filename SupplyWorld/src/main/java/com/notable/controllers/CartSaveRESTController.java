@@ -34,8 +34,6 @@ public class CartSaveRESTController {
 		// get the last orderId to add 1 to set the next order Id
 		List<AdminOrder> orders = jdbcTemplate.query("SELECT * FROM orderdetails", new AdminOrdersMapper());
 		
-		System.out.println("ORDERS: " + orders);
-		
 		int orderId = 1;
 		// get the last order
 		if (!orders.isEmpty()) {

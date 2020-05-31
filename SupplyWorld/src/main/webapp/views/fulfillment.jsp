@@ -14,13 +14,14 @@
 	<c:import url="/sharedViews/header.jsp" />
 
 	<div class="container home">
-		<div class="container home">
+		<div class="container home2">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Administrator Page</h1>
 				<a href="myOrders"><button class="headerButton btn">View Orders</button></a>
+				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
 			</div>
 		</div>
+		<h1>Orders</h1>
 	</div>
 
 		<table class="table">
@@ -52,13 +53,13 @@
 	</div>
 	
 
-		<div class="container home">
-		<div class="row">
-			<div class="col-md-12">
-				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
-			</div>
-		</div>
-		</div>
+<!-- 		<div class="container home"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12"> -->
+<!-- 				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		</div> -->
 	
 
 	<c:import url="/sharedViews/footer.jsp" />

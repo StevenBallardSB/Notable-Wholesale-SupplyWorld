@@ -13,7 +13,7 @@
 <body>
 	<c:import url="/sharedViews/header.jsp" />
 
-	<div class="container home">
+<div class="container home2">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4">
       <div class="container" id="nwContainer">
@@ -58,9 +58,6 @@
                 
 
               </fieldset>
-              <input type="hidden" name="reLogonURL" value="LogonForm" id="WC_AccountDisplay_FormInput_reLogonURL_In_Logon_1">
-              <input type="hidden" name="isPharmacy" value="false" id="WC_AccountDisplay_FormInput_isPharmacy_In_Logon_1">
-              <input type="hidden" name="fromCheckout" value=""> <input type="hidden" name="authToken" value="-1002%2C5M9R2fZEDWOZ1d8MBwy40LOFIV0%3D"> <input type="hidden" name="URL" value="" id="WC_AccountDisplay_FormInput_URL_In_Logon_1">
             </form>
           </div>
         </div>

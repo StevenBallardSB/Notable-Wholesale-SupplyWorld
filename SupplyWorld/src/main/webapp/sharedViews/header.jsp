@@ -5,11 +5,13 @@
 
 			
 			<div >
-				<a href="home?name=fulfillment"><img src="images/supplyWorldLogo.jpeg"
+				<a href="home?name=fulfillment"><img src="images/supplyWorldLogo.png"
 					id="mainLogo" alt=""></a>
 			</div>
 			
 
 	</div>
-	<h1 class="center">Supply World</h1>
+	
+	<div id="welcomeBack" class="center">Welcome to Supply World</div>
+	
 </header>
