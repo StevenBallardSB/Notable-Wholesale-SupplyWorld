@@ -19,6 +19,7 @@
 			<div class="col-md-12">
 				<a href="myOrders"><button class="headerButton btn">View Orders</button></a>
 				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
+				<a href=""><button class="headerButton btn">Log Out</button></a>
 			</div>
 		</div>
 		<h1>Orders</h1>
