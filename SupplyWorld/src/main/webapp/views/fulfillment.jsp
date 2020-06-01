@@ -19,7 +19,10 @@
 			<div class="col-md-12">
 				<h2>Menu</h2>
 				<a href="myOrders"><button class="headerButton btn">View Orders</button></a>
-				<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
+				<c:if test="${!orderDetails.isEmpty() }">
+					<a href="fulfill"><button class="headerButton btn">Fulfill Order</button></a>
+				</c:if>
+				
 				<a href="index.jsp"><button class="headerButton btn">Log Out</button></a>
 			</div>
 		</div>
