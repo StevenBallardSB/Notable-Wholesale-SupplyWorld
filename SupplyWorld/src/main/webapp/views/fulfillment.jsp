@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Date"%>
 <!doctype html>
 <html lang="en">
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <head>
 <c:import url="/sharedViews/headMeta.jsp" />
@@ -49,6 +51,8 @@
 					<th scope="col">Name</th>
 					<th scope="col">Quantity</th>
 					<th scope="col">Status</th>
+					<c:set var="tomorrow" value="<%=new Date(new Date().getTime() + 60*60*24*1000)%>"/>
+					<c:set var="today" value="<%=new Date()%>"/>
 
 				</tr>
 			</thead>
@@ -76,9 +80,29 @@
 							<td>${adminOrder.productId}</td>
 							<td>${adminOrder.name}</td>
 							<td>${adminOrder.quantity}</td>
-								<c:if test="${loop.index == 0}">
-								<td rowspan="${entry.value.size()}" colspan="${entry.value.size()}"  style="border-left:1px solid #dee2e6; vertical-align: middle; font-weight: bold;">${adminOrder.status}</td>
-							</c:if>
+							
+							<c:choose>
+									<c:when test="${adminOrder.status == 'Processing'}">
+										<c:if test="${loop.index == 0}">
+											<td rowspan="${entry.value.size()}"
+												style="border-left: 1px solid #dee2e6; vertical-align: middle; font-weight: bold;">
+												${adminOrder.status} - <fmt:formatDate type="date" value="${tomorrow}" pattern="MM/dd/yyyy"/></td>
+										</c:if>
+							
+									</c:when>
+									<c:when test="${adminOrder.status == 'Complete'}">
+										<c:if test="${loop.index == 0}">
+											<td rowspan="${entry.value.size()}"
+<%-- 												colspan="${entry.value.size()}" --%>
+												style="border-left: 1px solid #dee2e6; vertical-align: middle; font-weight: bold;">
+												${adminOrder.status} - <fmt:formatDate type="date" value="${today}" pattern="MM/dd/yyyy"/>
+												</td>
+										</c:if>
+								
+							
+									</c:when>
+								</c:choose>
+							
 						</tr>
 					</c:forEach>
 				</c:forEach>
