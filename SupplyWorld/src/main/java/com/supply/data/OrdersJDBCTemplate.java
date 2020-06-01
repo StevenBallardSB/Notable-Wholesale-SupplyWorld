@@ -1,4 +1,4 @@
-package com.notable.data;
+package com.supply.data;
 
 import java.util.List;
 

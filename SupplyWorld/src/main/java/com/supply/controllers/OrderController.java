@@ -1,4 +1,4 @@
-package com.notable.controllers;
+package com.supply.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.notable.business.AdminOrder;
-import com.notable.business.OrderDetails;
-import com.notable.business.User;
-import com.notable.data.OrderDetailsMapper;
-import com.notable.data.OrdersJDBCTemplate;
-import com.notable.data.UserMapper;
+import com.supply.business.AdminOrder;
+import com.supply.business.OrderDetails;
+import com.supply.business.User;
+import com.supply.data.OrderDetailsMapper;
+import com.supply.data.OrdersJDBCTemplate;
+import com.supply.data.UserMapper;
 
 @Controller
 public class OrderController {
