@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.notable</groupId>
-	<artifactId>NotableWholesale_Spring</artifactId>
+	<artifactId>SupplyWorld_Spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>NotableWholesale_Spring</name>
-	<description>Notable Wholesale Website</description>
+	<name>SupplyWorld_Spring</name>
+	<description>Supply World Website</description>
 
 	<properties>
 		<java.version>1.8</java.version>

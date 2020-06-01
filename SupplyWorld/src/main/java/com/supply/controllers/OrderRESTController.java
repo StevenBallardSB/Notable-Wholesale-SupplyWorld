@@ -1,4 +1,4 @@
-package com.notable.controllers;
+package com.supply.controllers;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.notable.business.AdminOrder;
-import com.notable.data.AdminOrdersMapper;
-import com.notable.data.OrderDetailsMapper;
-import com.notable.data.OrdersJDBCTemplate;
+import com.supply.business.AdminOrder;
+import com.supply.data.AdminOrdersMapper;
+import com.supply.data.OrderDetailsMapper;
+import com.supply.data.OrdersJDBCTemplate;
 
 @RestController
 public class OrderRESTController {

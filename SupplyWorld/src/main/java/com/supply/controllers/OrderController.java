@@ -1,4 +1,4 @@
-package com.notable.controllers;
+package com.supply.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.notable.business.AdminOrder;
-import com.notable.business.OrderDetails;
-import com.notable.business.User;
-import com.notable.data.OrderDetailsMapper;
-import com.notable.data.OrdersJDBCTemplate;
-import com.notable.data.UserMapper;
+import com.supply.business.AdminOrder;
+import com.supply.business.OrderDetails;
+import com.supply.business.User;
+import com.supply.data.OrderDetailsMapper;
+import com.supply.data.OrdersJDBCTemplate;
+import com.supply.data.UserMapper;
 
 @Controller
 public class OrderController {
@@ -59,6 +59,35 @@ public class OrderController {
 
 		session.setAttribute("orderDetails", orderDetails);
 
+		HashMap<Integer, List<AdminOrder>> hmap = new HashMap<Integer, List<AdminOrder>>();
+		List<AdminOrder> itemsPerOrder = new ArrayList<AdminOrder>();
+		int tempOrderId = 0;
+
+		for (AdminOrder od : orderDetails) {
+			int orderId = od.getOrderId();
+			if (orderId != tempOrderId) {
+				if (tempOrderId != 0) {
+					List<AdminOrder> itemsPerOrderTemp = new ArrayList<AdminOrder>();
+					for (AdminOrder item : itemsPerOrder) {
+						itemsPerOrderTemp.add(item);
+					}
+					hmap.put(tempOrderId, itemsPerOrderTemp);
+				}
+				tempOrderId = orderId;
+				itemsPerOrder.clear();
+			}
+
+			itemsPerOrder.add(od);
+		}
+
+		List<AdminOrder> itemsPerOrderTemp = new ArrayList<AdminOrder>();
+		for (AdminOrder item : itemsPerOrder) {
+			itemsPerOrderTemp.add(item);
+			hmap.put(tempOrderId, itemsPerOrderTemp);
+		}
+
+		System.out.println(hmap.toString());
+		session.setAttribute("adminOrdersHash", hmap);
 		
 
 		return "views/fulfillment";

@@ -1,11 +1,11 @@
-package com.notable.data;
+package com.supply.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.notable.business.User;
+import com.supply.business.User;
 
 public final class UserMapper implements RowMapper<User> {
 
