@@ -1,4 +1,4 @@
-package com.supply.controllers;
+package com.notable.controllers;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.supply.business.User;
-import com.supply.data.UserMapper;
+import com.notable.business.User;
+import com.notable.data.UserMapper;
 
 @Controller
 public class LoginController {

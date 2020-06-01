@@ -1,4 +1,4 @@
-package com.supply.business;
+package com.notable.business;
 
 public class AdminOrder {
 

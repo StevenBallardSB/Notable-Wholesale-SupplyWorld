@@ -1,4 +1,4 @@
-package com.supply.data;
+package com.notable.data;
 
 import javax.sql.DataSource;
 

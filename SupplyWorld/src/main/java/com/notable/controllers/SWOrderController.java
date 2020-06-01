@@ -1,9 +1,9 @@
-package com.supply.controllers;
+package com.notable.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.supply.business.Cart;
+import com.notable.business.Cart;
 
 @RestController
 public class SWOrderController {
