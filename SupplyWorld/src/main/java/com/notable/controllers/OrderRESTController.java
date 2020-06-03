@@ -40,6 +40,12 @@ public class OrderRESTController {
 
 		return orders;
 	}
+		@RequestMapping("pending")
+	public List<AdminOrder> pendingOrders(HttpServletRequest request){
+		List<AdminOrder> pending = jdbc.query("select * from orderdetails WHERE status = 'processing'", new AdminOrdersMapper());
+	
+		return pending;
+	}
 	
 
 	
