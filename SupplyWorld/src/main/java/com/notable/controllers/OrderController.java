@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
 import com.notable.business.AdminOrder;
+import com.notable.business.Cart;
 import com.notable.business.OrderDetails;
 import com.notable.business.User;
 import com.notable.data.OrderDetailsMapper;
@@ -30,14 +33,21 @@ public class OrderController {
 	
 	@Autowired
 	OrdersJDBCTemplate OrdersJdbc;
-	
-	@RequestMapping("fulfill")
+		@RequestMapping("fulfill")
 	public String fulfillOrder(HttpServletRequest request) {
 		
 		System.out.println("In the fulfillOrder method");
 		
+		//pull out quantities in order object in notableapplication
+		RestTemplate rt = new RestTemplate();
+		String url = "http://localhost:8080/updateInventory";
+		ResponseEntity<String> response = rt.getForEntity(url, String.class);
+		
+		String updateStatus = response.getBody();
+		System.out.println("Update Status: " + updateStatus);
 		// Need to update the status column to Complete on the orderDetails table
 		OrdersJdbc.fulfill("update orderdetails set status = 'Complete'");
+		
 		
 		return "views/orderFulfilled";
 		
